@@ -1,12 +1,20 @@
 import {StyleSheet, Text, View} from 'react-native';
+import StyledButton from '../components/StyledButton';
 
-const Accept = () => {
+const Accept = ({route, navigation}) => {
+  const {creditOption, amount} = route.params;
+
   return (
     <View style={styles.container}>
-      <Text style={styles.red}>just red</Text>
-      <Text style={styles.bigBlue}>just bigBlue</Text>
-      <Text style={[styles.bigBlue, styles.red]}>bigBlue, then red</Text>
-      <Text style={[styles.red, styles.bigBlue]}>red, then bigBlue</Text>
+      <Text style={styles.red}>Accept in just red</Text>
+      <Text style={styles.bigBlue}>Credit: {JSON.stringify(creditOption)}</Text>
+      <Text style={[styles.bigBlue, styles.red]}>
+        Amount: {JSON.stringify(amount)}
+      </Text>
+      <Text style={[styles.red, styles.bigBlue]}>
+        Accept in red, then bigBlue
+      </Text>
+      <StyledButton title="Contratar" onPress={() => navigation.popToTop()} />
     </View>
   );
 };
