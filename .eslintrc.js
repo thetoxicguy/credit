@@ -1,3 +1,6 @@
 module.exports = {
-  extends: 'universe',
+  extends: 'universe/native',
+  rules: {
+    'prettier/prettier': ['error', {endOfLine: 'auto'}],
+  },
 };
