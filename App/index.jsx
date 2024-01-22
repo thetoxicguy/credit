@@ -10,8 +10,6 @@ import Discover from './screens/Discover';
 const Stack = createNativeStackNavigator();
 
 export default function App() {
-  // const [modalVisible, setModalVisible] = useState(false);
-
   return (
     <NavigationContainer>
       <Stack.Navigator>

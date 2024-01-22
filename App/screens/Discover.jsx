@@ -1,8 +1,11 @@
+import {useState} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 
 import StyledButton from '../components/StyledButton';
+import StyledModal from '../components/StyledModal';
 
 const Discover = ({navigation}) => {
+  const [modalVisible, setModalVisible] = useState(false);
   return (
     <View style={styles.container}>
       <Text style={styles.red}>Discover in just red</Text>
@@ -19,10 +22,10 @@ const Discover = ({navigation}) => {
           navigation.navigate('Accept', {creditOption: 2, amount: 1500});
         }}
       />
-      {/* <StyledModal
+      <StyledModal
         modalVisible={modalVisible}
         setModalVisible={setModalVisible}
-      /> */}
+      />
     </View>
   );
 };
