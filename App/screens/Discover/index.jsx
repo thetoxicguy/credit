@@ -5,9 +5,9 @@ import StyledButton from '../../components/StyledButton';
 import StyledModal from '../../components/StyledModal';
 import {Description} from '../../ui/Description';
 import {Title} from '../../ui/Title';
+import CreditForm from '../../components/CreditForm/CreditForm';
 
 const Discover = ({navigation}) => {
-  const [modalVisible, setModalVisible] = useState(false);
   return (
     <View style={styles.container}>
       <Title>Descubre tu crédito</Title>
@@ -15,16 +15,7 @@ const Discover = ({navigation}) => {
         Llena el siguiente formulario para conocer los créditos que tenemos
         disponibles para ti.
       </Description>
-      <StyledButton
-        title="Descubrir créditos"
-        onPress={() => {
-          navigation.navigate('Accept', {creditOption: 2, amount: 1500});
-        }}
-      />
-      <StyledModal
-        modalVisible={modalVisible}
-        setModalVisible={setModalVisible}
-      />
+      <CreditForm />
     </View>
   );
 };

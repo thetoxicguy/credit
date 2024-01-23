@@ -62,7 +62,7 @@ const StyledModal = ({modalVisible, setModalVisible}) => {
       <Pressable
         style={[styles.button, styles.buttonOpen]}
         onPress={() => setModalVisible(true)}>
-        <Text style={styles.textStyle}>Show Modal</Text>
+        <Text style={styles.textStyle}>Descubrir Créditos</Text>
       </Pressable>
     </View>
   );
@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
     elevation: 2,
   },
   buttonOpen: {
-    backgroundColor: '#F194FF',
+    backgroundColor: '#2196F3',
   },
   buttonClose: {
     backgroundColor: '#2196F3',
