@@ -1,6 +1,7 @@
 import {useState} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 
+import CreditForm from '../../components/CreditForm.jsx';
 import StyledButton from '../../components/StyledButton';
 import StyledModal from '../../components/StyledModal';
 import {Description} from '../../ui/Description';
@@ -15,6 +16,7 @@ const Discover = ({navigation}) => {
         Llena el siguiente formulario para conocer los créditos que tenemos
         disponibles para ti.
       </Description>
+      {/* <CreditForm /> */}
       <StyledButton
         title="Descubrir créditos"
         onPress={() => {
