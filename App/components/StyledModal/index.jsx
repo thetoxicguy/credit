@@ -1,3 +1,5 @@
+import axios from 'axios';
+import {useState} from 'react';
 import {Alert, Modal, StyleSheet, Text, Pressable, View} from 'react-native';
 
 import ModalPressable from './ModalPressable';
@@ -6,30 +8,21 @@ import {Description} from '../../ui/Description';
 import {Title} from '../../ui/Title';
 import StyledButton from '../StyledButton';
 
-const options = [
-  {
-    id: 1,
-    name: 'Credito 1',
-    value: 500,
-  },
-  {
-    id: 2,
-    name: 'Credito 2',
-    value: 1000,
-  },
-  {
-    id: 3,
-    name: 'Credito 3',
-    value: 1500,
-  },
-  {
-    id: 4,
-    name: 'Credito 4',
-    value: 2000,
-  },
-];
+const url = 'https://mocki.io/v1/2156ae74-9927-4f44-8960-dbdbd0d798ac';
 
 const StyledModal = ({modalVisible, setModalVisible}) => {
+  const [creditOptions, setCreditOptions] = useState([]);
+
+  const handlePress = () => {
+    axios
+      .get(url)
+      .then(res => {
+        setCreditOptions(res.data.data);
+        setModalVisible(true);
+      })
+      .catch(err => console.log(err));
+  };
+
   return (
     <View>
       <Modal
@@ -44,7 +37,7 @@ const StyledModal = ({modalVisible, setModalVisible}) => {
           <View style={styles.modalView}>
             <Title>¡Felicidades!</Title>
             <Description>Encontramos estos créditos para ti:</Description>
-            {options.map(option => (
+            {creditOptions.map(option => (
               <ModalPressable
                 option={option}
                 onPress={() => {}}
@@ -59,9 +52,10 @@ const StyledModal = ({modalVisible, setModalVisible}) => {
           </View>
         </CenteredView>
       </Modal>
+      {/* TODO: Fetch call is made here */}
       <Pressable
         style={[styles.button, styles.buttonOpen]}
-        onPress={() => setModalVisible(true)}>
+        onPress={handlePress}>
         <Text style={styles.textStyle}>Descubrir Créditos</Text>
       </Pressable>
     </View>
