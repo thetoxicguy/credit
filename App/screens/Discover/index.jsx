@@ -1,21 +1,20 @@
 import {useState} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 
-import StyledButton from '../components/StyledButton';
-import StyledModal from '../components/StyledModal';
+import StyledButton from '../../components/StyledButton';
+import StyledModal from '../../components/StyledModal';
+import {Description} from '../../ui/Description';
+import {Title} from '../../ui/Title';
 
 const Discover = ({navigation}) => {
   const [modalVisible, setModalVisible] = useState(false);
   return (
     <View style={styles.container}>
-      <Text style={styles.red}>Discover in just red</Text>
-      <Text style={styles.bigBlue}>Discover in just bigBlue</Text>
-      <Text style={[styles.bigBlue, styles.red]}>
-        Discover in bigBlue, then red
-      </Text>
-      <Text style={[styles.red, styles.bigBlue]}>
-        Discover in red, then bigBlue
-      </Text>
+      <Title>Descubre tu crédito</Title>
+      <Description>
+        Llena el siguiente formulario para conocer los créditos que tenemos
+        disponibles para ti.
+      </Description>
       <StyledButton
         title="Descubrir créditos"
         onPress={() => {
@@ -32,7 +31,7 @@ const Discover = ({navigation}) => {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 50,
+    marginTop: 80,
   },
   bigBlue: {
     color: 'blue',

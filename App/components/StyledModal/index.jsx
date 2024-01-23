@@ -1,7 +1,9 @@
 import {Alert, Modal, StyleSheet, Text, Pressable, View} from 'react-native';
 
 import ModalPressable from './ModalPressable';
-import {Title, Description, CenteredView, ModalView} from './StyledModal.style';
+import {CenteredView} from './StyledModal.style';
+import {Description} from '../../ui/Description';
+import {Title} from '../../ui/Title';
 import StyledButton from '../StyledButton';
 
 const options = [
