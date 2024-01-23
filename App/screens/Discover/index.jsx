@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 
-import CreditForm from '../../components/CreditForm.jsx';
+import {CreditForm} from '../../components/CreditForm.jsx';
 import StyledButton from '../../components/StyledButton';
 import StyledModal from '../../components/StyledModal';
 import {Description} from '../../ui/Description';

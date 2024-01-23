@@ -1,16 +1,16 @@
 import {Formik, Form, useField} from 'formik';
-import {Text, Input} from 'react-native';
+import {View, Text, TextInput} from 'react-native';
 import * as Yup from 'yup';
+
+import StyledButton from '../StyledButton';
 
 const MyTextInput = ({label, ...props}) => {
   const [field, meta] = useField(props);
   return (
     <>
-      <label htmlFor={props.id || props.name}>{label}</label>
-      <Input className="text-input" {...field} {...props} />
-      {meta.touched && meta.error ? (
-        <div className="error">{meta.error}</div>
-      ) : null}
+      <Text>{label}</Text>
+      <TextInput className="text-input" {...field} {...props} />
+      {meta.touched && meta.error ? <Text>{meta.error}</Text> : null}
     </>
   );
 };
@@ -35,24 +35,30 @@ export const CreditForm = () => {
         await new Promise(r => setTimeout(r, 500));
         setSubmitting(false);
       }}>
-      <Form>
-        <MyTextInput
-          label="Name"
-          name="name"
-          type="text"
-          placeholder="Javier Hernandez"
-        />
-        <MyTextInput
-          label="Correo"
-          name="email"
-          type="email"
-          placeholder="johndoe@gmail.com"
-        />
+      {({handleChange, handleBlur, handleSubmit, values}) => (
+        <View>
+          <Form>
+            <View>
+              <MyTextInput
+                label="Name"
+                name="name"
+                type="text"
+                placeholder="Javier Hernandez"
+              />
+            </View>
+            <View>
+              <MyTextInput
+                label="Correo"
+                name="email"
+                type="email"
+                placeholder="johndoe@gmail.com"
+              />
+            </View>
 
-        <button type="submit">
-          <Text>Submit</Text>
-        </button>
-      </Form>
+            <StyledButton title="Submit" type="submit" />
+          </Form>
+        </View>
+      )}
     </Formik>
   );
 };
