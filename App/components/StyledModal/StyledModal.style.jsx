@@ -11,7 +11,7 @@ export const CenteredView = styled.View`
   flex: 1;
   justify-content: 'center';
   align-items: 'center';
-  margin-top: 22;
+  margin-top: 200px;
 `;
 
 export const ModalView = styled.View`

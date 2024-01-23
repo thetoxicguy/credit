@@ -1,12 +1,10 @@
-import {View} from 'react-native';
-
 import {PressableText, PressableContainer} from './ModalPressable.style';
 
-const ModalPressable = () => {
+const ModalPressable = ({option}) => {
   return (
     <PressableContainer>
-      <PressableText>Credito 1</PressableText>
-      <PressableText>$500</PressableText>
+      <PressableText>{option.name}</PressableText>
+      <PressableText>${option.value}</PressableText>
     </PressableContainer>
   );
 };
