@@ -1,5 +1,6 @@
 import {Alert, Modal, StyleSheet, Text, Pressable, View} from 'react-native';
 
+import ModalPressable from './ModalPressable';
 import {Title, Description} from './StyledModal.style';
 import StyledButton from '../StyledButton';
 
@@ -18,6 +19,12 @@ const StyledModal = ({modalVisible, setModalVisible}) => {
           <View style={styles.modalView}>
             <Title>¡Felicidades!</Title>
             <Description>Encontramos estos créditos para ti:</Description>
+            <View>
+              <ModalPressable>
+                <Text>Credito</Text>
+                <Text>$500</Text>
+              </ModalPressable>
+            </View>
             <StyledButton
               title="Seleccionar crédito"
               // style={[styles.button, styles.buttonClose]}

@@ -1,28 +1,13 @@
-import {View, Pressable} from 'react-native';
+import {View} from 'react-native';
 
-import {PressableText} from './ModalPressable.style';
+import {PressableText, PressableContainer} from './ModalPressable.style';
 
-const ModalPressable = ({index, creditOption, setCreditOption}) => {
+const ModalPressable = () => {
   return (
-    <View>
-      <Pressable
-        disabled={creditOption === index}
-        onPress={() => {
-          setCreditOption(index);
-        }}
-        style={({pressed}) => {
-          return [
-            pressed
-              ? {backgroundColor: 'gray'}
-              : {backgroundColor: 'cornflowerblue'},
-          ];
-        }}>
-        <ModalPressable>
-          <PressableText>Credito 2</PressableText>
-          <PressableText>$2000</PressableText>
-        </ModalPressable>
-      </Pressable>
-    </View>
+    <PressableContainer>
+      <PressableText>Credito 1</PressableText>
+      <PressableText>$500</PressableText>
+    </PressableContainer>
   );
 };
 
