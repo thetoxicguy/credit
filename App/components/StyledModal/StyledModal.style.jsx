@@ -6,3 +6,7 @@ export const CenteredView = styled.View`
   align-items: 'center';
   margin-top: 200px;
 `;
+
+export const ButtonContainer = styled.View`
+  margin-top: 30px;
+`;
