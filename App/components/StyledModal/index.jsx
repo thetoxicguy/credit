@@ -1,17 +1,20 @@
 import axios from 'axios';
-import {useState} from 'react';
+import {useState, useContext} from 'react';
 import {Alert, Modal, StyleSheet, Text, Pressable, View} from 'react-native';
 
 import ModalPressable from './ModalPressable';
 import {CenteredView} from './StyledModal.style';
+import {CreditContext} from '../../CreditContext';
 import {Description} from '../../ui/Description';
 import {Title} from '../../ui/Title';
 import StyledButton from '../StyledButton';
 
 const url = 'https://mocki.io/v1/2156ae74-9927-4f44-8960-dbdbd0d798ac';
 
-const StyledModal = ({modalVisible, setModalVisible}) => {
+const StyledModal = ({navigation, modalVisible, setModalVisible}) => {
   const [creditOptions, setCreditOptions] = useState([]);
+  const {selectedCredit, setSelectedCredit, selectedValue, setSelectedValue} =
+    useContext(CreditContext);
 
   const handlePress = () => {
     axios
@@ -38,15 +41,27 @@ const StyledModal = ({modalVisible, setModalVisible}) => {
             <Title>¡Felicidades!</Title>
             <Description>Encontramos estos créditos para ti:</Description>
             {creditOptions.map(option => (
-              <ModalPressable
-                option={option}
-                onPress={() => {}}
-                key={option.name}
-              />
+              <>
+                <ModalPressable
+                  option={option}
+                  onPress={() => {
+                    setSelectedCredit(option.name);
+                    setSelectedValue(option.value);
+                    console.log(option);
+                  }}
+                  key={option.name}
+                />
+                <Text>{option.name}</Text>
+                <Text>{option.value}</Text>
+              </>
             ))}
             <StyledButton
               title="Seleccionar crédito"
-              onPress={() => setModalVisible(!modalVisible)}>
+              onPress={() => {
+                setModalVisible(!modalVisible);
+                navigation.navigate('accept', selectedCredit);
+              }}
+              disabled={selectedCredit === {}}>
               <Text style={styles.textStyle}>Hide Modal</Text>
             </StyledButton>
           </View>

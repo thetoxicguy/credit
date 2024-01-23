@@ -15,7 +15,7 @@ const Discover = ({navigation}) => {
         Llena el siguiente formulario para conocer los créditos que tenemos
         disponibles para ti.
       </Description>
-      <CreditForm />
+      <CreditForm navigation={navigation} />
     </View>
   );
 };

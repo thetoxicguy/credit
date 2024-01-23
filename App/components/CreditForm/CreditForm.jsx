@@ -5,7 +5,7 @@ import {Text, View, TextInput} from 'react-native';
 import {BorderedInput, InputLabel} from './CreditForm.style';
 import StyledModal from '../StyledModal';
 
-const CreditForm = () => {
+const CreditForm = ({navigation}) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [modalVisible, setModalVisible] = useState(false);
@@ -25,6 +25,7 @@ const CreditForm = () => {
       />
       {!name || !email ? null : (
         <StyledModal
+          navigation={navigation}
           modalVisible={modalVisible}
           setModalVisible={setModalVisible}
         />

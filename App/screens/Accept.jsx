@@ -1,16 +1,26 @@
+import {useContext, useEffect} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
+
+import {CreditContext} from '../CreditContext';
 import StyledButton from '../components/StyledButton';
+import {Title} from '../ui/Title';
+import {Description} from '../ui/Description';
 
-const Accept = ({route, navigation}) => {
-  const {creditOption, amount} = route.params;
-
+const Accept = ({navigation}) => {
+  const {selectedCredit, setSelectedCredit, selectedValue, setSelectedValue} =
+    useContext(CreditContext);
+  // useEffect(() => {
+  //   setSelectedCredit();
+  //   setSelectedValue();
+  // }, []);
   return (
     <View style={styles.container}>
-      <Text style={styles.red}>Accept in just red</Text>
-      <Text style={styles.bigBlue}>Credit: {JSON.stringify(creditOption)}</Text>
-      <Text style={[styles.bigBlue, styles.red]}>
-        Amount: {JSON.stringify(amount)}
-      </Text>
+      <Title>Acepta tu crédito</Title>
+      <Description>
+        Confirma que has seleccionado el crédito deseado
+      </Description>
+      <Text style={styles.bigBlue}>Credit: {selectedCredit}</Text>
+      <Text style={[styles.bigBlue, styles.red]}>Value: {selectedValue}</Text>
       <Text style={[styles.red, styles.bigBlue]}>
         Accept in red, then bigBlue
       </Text>
