@@ -4,7 +4,7 @@ export const PressableContainer = styled.View`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 200;
+  width: 200px;
   background-color: blue;
   margin: 20px;
 `;
